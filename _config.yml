@@ -2,6 +2,9 @@ name: Your New Jekyll Site
 description: Blogging about stuffs
 meta_description: "Your New Jekyll Site, Blogging about stuffs"
 
+# Local settings
+port: 5000
+
 aboutPage: true
 
 markdown: redcarpet
