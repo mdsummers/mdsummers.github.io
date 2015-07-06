@@ -1,6 +1,5 @@
-name: Your New Jekyll Site
-description: Blogging about stuffs
-meta_description: "Your New Jekyll Site, Blogging about stuffs"
+name: Matt Summers
+description: Thoughts on technology and the likes.
 
 # Local settings
 port: 5000
@@ -12,14 +11,14 @@ highlighter: pygments
 
 paginate: 20
 baseurl: /
-domain_name: 'http://yourblog-domain.com'
-google_analytics: 'UA-XXXXXXXX-X'
-disqus_shortname: 'your-disqus-shortname'
+domain_name: 'https://mdsummers.gitlab.io'
+# google_analytics: 'UA-XXXXXXXX-X'
+# disqus_shortname: 'your-disqus-shortname'
 
 # Details for the RSS feed generator
-url:            'http://your-blog-url.example.com'
-author:         'Your Name'
-authorTwitter:  'YourTwitterUsername'
+url:            'https://mdsummers.gitlab.io'
+author:         'Matt Summers'
+authorTwitter:  'matt_summers'
 
 permalink:       /:year/:title/
 
