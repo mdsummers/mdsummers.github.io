@@ -12,11 +12,11 @@ highlighter: pygments
 paginate: 20
 baseurl: /
 domain_name: 'https://mdsummers.gitlab.io'
-# google_analytics: 'UA-XXXXXXXX-X'
+google_analytics: 'UA-66391096-1'
 # disqus_shortname: 'your-disqus-shortname'
 
 # Details for the RSS feed generator
-url:            'https://mdsummers.gitlab.io'
+url:            'http://mattsumme.rs'
 author:         'Matt Summers'
 authorTwitter:  'matt_summers'
 
