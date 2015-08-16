@@ -7,7 +7,7 @@ description: Keeping packaging simple while following best practices.
 Sooner or later when working with a fleet of linux servers, it becomes necessary to package software. A few reasons to build native packages:
 
 * They play nice with configuration management.
-* File integrity checks come free with package management.
+* File integrity checks come for free with package managers.
 * Any sysadmin can find out where a particular file came from.
 * Scriptlets.
 
@@ -18,9 +18,9 @@ The bulk of my packaging experience has been on RPM-based systems where there ar
 * [CentOS Sources](http://wiki.centos.org/Sources)
 * Project-specific or DIY one-off build scripts.
 
-The first two of these options use some kind of notion of a lookaside cache. This basically means putting binary or other non vcs-friendly files onto another server and simply referring to them. As far as I can tell, OBS bundles together source binaries rather than referring to them in a separate cache. However, given that all of the files for OBS are kept in a cloud system, there are some similarities to be drawn.
+The first two of these options use the notion of a lookaside cache. This basically means putting binary or other non vcs-friendly files onto another server and simply referring to them. As far as I can tell, OBS bundles together source binaries rather than referring to them in a separate cache. However, given that all of the files for OBS are kept in a cloud system, there are some similarities to be drawn.
 
-Not everybody has the infrastructure for a dedicated Koji or lookaside cache. It's a lot of additional work for a sysadmin who wants to build some RPMs and has a lot of other things on their plate.
+Not everybody has the infrastructure for a dedicated Koji or lookaside cache. It's also a lot of additional work for a sysadmin who wants to build some RPMs and has a lot of other things on their plate.
 
 The other end of the spectrum is the one-off <code>build.sh</code> style scripts. These are quick to put in place, but slow down development when the need comes for adding additional sources or other complexity (like gpg signing).
 
@@ -46,9 +46,9 @@ I decided to write a script that would offer a time/complexity trade-off between
 
 <code>spkg</code> works around a build environment that is at its core, a directory containing
 
-* An [RPM spec](https://fedoraproject.org/wiki/How_to_create_an_RPM_package#Examples) containing the details required to build the rpm.
+* An [RPM spec](https://fedoraproject.org/wiki/How_to_create_an_RPM_package#Examples) detailing the steps required to build one or more RPMs.
 * A <code>sources</code> directory containing all non-remote sources referred to in the spec file (required if there are any local sources).
-* A <code>checksums</code> file containing the sha256 sums of remote sources referred to in the spec file (optional but encouraged).
+* A <code>checksums</code> file listing the sha256 sums of remote sources referred to in the spec file (optional but encouraged).
 
 The build environment should be kept under version control.
 
@@ -77,13 +77,13 @@ nginx-1.8.0-1.el7.ngx.src/
 
 Or you can put a spec file in a directory and <code>spkg</code> will figure out the details, prompting you when it's missing something.
 
-When you're ready to build
+When you're ready to build, execute the following command inside the build environment.
 
 ```bash
 spkg build
 ```
 
-For more details, take a look at the repo [at Github](https://github.com/mdsummers/spkg).
+For more details, take a look at the [project on Github](https://github.com/mdsummers/spkg).
 
 Have I missed something? Send a pull request or create an issue.
 
