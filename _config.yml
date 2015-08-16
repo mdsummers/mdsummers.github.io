@@ -11,7 +11,7 @@ highlighter: pygments
 
 paginate: 20
 baseurl: /
-domain_name: 'https://mdsummers.gitlab.io'
+domain_name: 'http://mattsumme.rs'
 google_analytics: 'UA-66391096-1'
 # disqus_shortname: 'your-disqus-shortname'
 
