@@ -182,7 +182,7 @@ a,
 	transition: all 0.15s ease;
 }
 
-ul 	{ margin:0; padding:0; }
+ul 	{ margin:0; padding:0; margin-bottom: 20px; } */
 li	{ list-style-type:circle; list-style-position:inside; }
 
 /* Line Height */
@@ -641,4 +641,17 @@ h2.month {
 	.post h2.headline { font-size: 13px; }
 	.post h1 { font-size:24px; }
 	.post h2 { font-size:20px; }
+}
+
+/* Tweaks */
+ul > li {
+      margin-left: 40px;
+}
+
+li > ul {
+			margin-bottom: 0px;
+}
+
+code {
+  font: 100% Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
