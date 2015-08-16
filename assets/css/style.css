@@ -655,3 +655,11 @@ h2.month {
 .post code {
   font: 100% Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
+
+#post-list {
+	margin-top: 50px;
+}
+
+#footer {
+	margin-top: 50px
+}
