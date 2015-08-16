@@ -8,7 +8,7 @@ Sooner or later when working with a fleet of linux servers, it becomes necessary
 
 * They play nice with configuration management.
 * File integrity checks come free with package management.
-* Any sysadmin can see find out where a particular file came from.
+* Any sysadmin can find out where a particular file came from.
 * Scriptlets.
 
 The bulk of my packaging experience has been on RPM-based systems where there are a few standout options/frameworks for package building, such as:
