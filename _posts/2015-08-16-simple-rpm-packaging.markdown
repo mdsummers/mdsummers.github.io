@@ -25,11 +25,12 @@ Not everybody has the infrastructure for a dedicated Koji or lookaside cache. It
 The other end of the spectrum is the one-off <code>build.sh</code> style scripts. These are quick to put in place, but slow down development when the need comes for adding additional sources or other complexity (like gpg signing).
 
 Does this look familiar?
-{% highlight bash %}
+
+```bash
 #!/bin/bash
 cp source1 source2 ~/rpmbuild/SOURCES/
 rpmbuild -ba myproject.spec
-{% endhighlight %}
+```
 
 ## A compromise
 
@@ -53,7 +54,7 @@ The build environment should be kept under version control.
 
 <code>spkg</code> can create this hierarchy automatically from an existing SRPM:
 
-{% highlight text %}
+```
 $ spkg init ~/srpm-test/nginx-1.8.0-1.el7.ngx.src.rpm
 ...
 New build directory under nginx-1.8.0-1.el7.ngx.src
@@ -72,14 +73,15 @@ nginx-1.8.0-1.el7.ngx.src/
     ├── nginx.upgrade.sh
     ├── nginx.vh.default.conf
     └── nginx.vh.example_ssl.conf
-{% endhighlight %}
+```
 
 Or you can put a spec file in a directory and <code>spkg</code> will figure out the details, prompting you when it's missing something.
 
 When you're ready to build
-{% highlight bash %}
+
+```bash
 spkg build
-{% endhighlight %}
+```
 
 For more details, take a look at the repo [at Github](https://github.com/mdsummers/spkg).
 

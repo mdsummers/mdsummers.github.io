@@ -9,6 +9,10 @@ aboutPage: true
 markdown: redcarpet
 highlighter: pygments
 
+redcarpet:
+  extensions:
+    - lax_spacing
+
 paginate: 20
 baseurl: /
 domain_name: 'http://mattsumme.rs'
