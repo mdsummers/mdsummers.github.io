@@ -644,14 +644,14 @@ h2.month {
 }
 
 /* Tweaks */
-ul > li {
+.post ul > li {
       margin-left: 40px;
 }
 
-li > ul {
+.post li > ul {
 			margin-bottom: 0px;
 }
 
-code {
+.post code {
   font: 100% Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
