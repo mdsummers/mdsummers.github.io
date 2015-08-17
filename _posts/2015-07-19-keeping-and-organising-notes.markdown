@@ -2,6 +2,7 @@
 title: "Keeping and organising notes"
 date:  2015-07-19 20:51:00
 description: Using the today command to help keep notes
+keywords: taking, notes, linux, today, script, daily
 ---
 
 I'm a strong believer in taking notes. I find that writing something down increases my chances of committing the item to memory. Failing that, it's always possible to refer back to the notes at a later time.

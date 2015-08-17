@@ -2,6 +2,7 @@
 title: "RPM Packaging"
 date:  2015-08-16 17:26:00
 description: Keeping packaging simple while following best practices.
+keywords: simple, rpm, packaging, linux, lookaside cache, spkg, vcs-friendly, fedpkg, koji, obs, package management
 ---
 
 Sooner or later when working with a fleet of linux servers, it becomes necessary to package software. A few reasons to build native packages:
