@@ -1,6 +1,6 @@
 ---
 title: About
-permalink: about/
+permalink: /about/
 profile: true
 description: Open source advocate with experience in systems administration, automation and development
 ---
