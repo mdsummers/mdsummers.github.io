@@ -661,5 +661,14 @@ h2.month {
 }
 
 #footer {
-	margin-top: 50px
+	margin-top: 50px;
+}
+
+.post sup {
+	vertical-align: super;
+	font-size: 70%;
+}
+
+.post sup > a {
+	padding: 0 2px;
 }

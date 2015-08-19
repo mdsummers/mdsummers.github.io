@@ -12,6 +12,8 @@ highlighter: pygments
 redcarpet:
   extensions:
     - lax_spacing
+    - footnotes
+    - no_intra_emphasis
 
 paginate: 20
 baseurl: /
