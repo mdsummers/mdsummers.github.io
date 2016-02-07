@@ -1,6 +1,5 @@
 ---
 layout: default
-archive: true
 ---
 
 <article class="post">
@@ -35,7 +34,7 @@ archive: true
 {% endif %}
 
 <!-- Archive post list -->
-{% if page.archive %}
+{% unless page.no-archive %}
     <ul id="post-list" class="archive readmore">
         <h3>Read more</h3>
         {% for post in site.posts %}
@@ -44,7 +43,4 @@ archive: true
             </li>
         {% endfor %}
     </ul>
-{% endif %}
-
-
-
+{% endunless %}
