@@ -27,11 +27,11 @@ The other end of the spectrum is the one-off <code>build.sh</code> style scripts
 
 Does this look familiar?
 
-```bash
+~~~bash
 #!/bin/bash
 cp source1 source2 ~/rpmbuild/SOURCES/
 rpmbuild -ba myproject.spec
-```
+~~~
 
 ## A compromise
 
@@ -55,7 +55,7 @@ The build environment should be kept under version control.
 
 <code>spkg</code> can create this hierarchy automatically from an existing SRPM:
 
-```
+~~~
 $ spkg init ~/srpm-test/nginx-1.8.0-1.el7.ngx.src.rpm
 ...
 New build directory under nginx-1.8.0-1.el7.ngx.src
@@ -74,15 +74,15 @@ nginx-1.8.0-1.el7.ngx.src/
     ├── nginx.upgrade.sh
     ├── nginx.vh.default.conf
     └── nginx.vh.example_ssl.conf
-```
+~~~
 
 Or you can put a spec file in a directory and <code>spkg</code> will figure out the details, prompting you when it's missing something.
 
 When you're ready to build, execute the following command inside the build environment.
 
-```bash
+~~~bash
 spkg build
-```
+~~~
 
 For more details, take a look at the [project on Github](https://github.com/mdsummers/spkg).
 

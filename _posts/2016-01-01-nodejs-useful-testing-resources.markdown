@@ -3,12 +3,15 @@ title: "A useful testing resource for node.js"
 date:  2016-01-01 11:53:00
 description: "An article on various testing modules"
 keywords: node.js, node, test, framework, unit, resource, nock, supertest, javascript
+archive: true
 ---
+
 I recently got to adding a test suite to an established module I had developed for work. The following resource was especially helpful in pointing me in the right direction:
 
 [Unit testing, the Clock way](http://www.clock.co.uk/blog/tools-for-unit-testing-and-quality-assurance-in-node-js)
 
 Briefly outlined, the modules I started using:
+
 * [Mocha](https://mochajs.org/) - test framework
 * [should.js](https://github.com/shouldjs/should.js) - assertion library
 * [Nock](https://github.com/pgte/nock) - http request interception and mocking

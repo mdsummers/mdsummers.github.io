@@ -6,14 +6,10 @@ port: 5000
 
 aboutPage: true
 
-markdown: redcarpet
 highlighter: rouge
 
-redcarpet:
-  extensions:
-    - lax_spacing
-    - footnotes
-    - no_intra_emphasis
+kramdown:
+  input: GFM
 
 paginate: 20
 baseurl: /

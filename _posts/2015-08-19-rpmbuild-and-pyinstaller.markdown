@@ -7,9 +7,9 @@ keywords: rpmbuild, PyInstaller, cannot open self, debug, rpm
 
 I recently ran into an issue using `rpmbuild` to package PyInstaller binaries. Running a packaged executable yielded the following:
 
-```
+~~~
 Cannot open self /path/to/executable or /path/to/executable.pkg
-```
+~~~
 
 While this particular output could be caused by a few things, after using `debug=True` in the [PyInstaller spec file](http://pythonhosted.org/PyInstaller/#using-spec-files) to make a debug binary, I tracked the error down to the [pyi_arch_check_cookie](https://github.com/pyinstaller/pyinstaller/blob/v2.1/bootloader/common/pyi_archive.c#L174) function.
 
@@ -19,10 +19,10 @@ As part of the default RPM building process any binary files are stripped of [de
 
 The solution is to disable stripping for the rpmbuild operation, by adding some definitions to the rpm spec file.[^1][^2]
 
-```
+~~~
 %define __os_install_post %{nil}
 %define debug_package %{nil}
-```
+~~~
 
 Rebuild your package and give it another go.
 

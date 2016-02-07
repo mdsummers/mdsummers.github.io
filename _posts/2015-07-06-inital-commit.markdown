@@ -10,7 +10,7 @@ I see this blog as a good platform to give answers to some of the problems that,
 
 Token code highlighting test:
 
-```bash
+~~~bash
 # print listening tcp ports
 
 # Linux
@@ -19,7 +19,7 @@ ss -plnt
 
 # OS X (does this work on FreeBSD?)
 lsof -nP | grep LISTEN
-```
+~~~
 
 ### See also
 * [Jekyll docs](http://jekyllrb.com)
