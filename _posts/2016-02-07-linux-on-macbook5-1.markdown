@@ -1,8 +1,8 @@
 ---
 title: "Linux on a MacBook5,1 - Lessons learned"
 date:  2016-02-07 17:30:00
-description: ""
-keywords: 
+description: "Some takeaways from installing Antergos on an old MacBook"
+keywords: macbook, macbook51, arch, linux, antergos, b43, efi, nouveau, gdm, lightdm
 ---
 
 In an effort to make more of a contribution to open source, I decided to put Linux on my home rig, a late-2008 unibody MacBook. I opted for Antergos, seeing it as a quickstart into Arch with a desktop environment.
