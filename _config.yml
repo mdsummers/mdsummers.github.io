@@ -7,7 +7,7 @@ port: 5000
 aboutPage: true
 
 markdown: redcarpet
-highlighter: pygments
+highlighter: rouge
 
 redcarpet:
   extensions:
@@ -47,3 +47,6 @@ defaults:
             type: drafts
         values:
             layout: post
+
+gems:
+    - jekyll-paginate
