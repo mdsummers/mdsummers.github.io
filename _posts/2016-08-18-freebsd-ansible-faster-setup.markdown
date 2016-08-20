@@ -5,7 +5,7 @@ description: "Digging into performance bottlenecks when using Ansible under Free
 keywords: ansible, freebsd, bsd, ulimit, limits, setup, module, slow, fd, file descriptor, truss, cProfile, fork, exec
 ---
 
-In a stock FreeBSD install Ansible's "setup" task can take a really long time. Testing against a dual xeon with 256GB of memory I observed the task consistently taking over 15 seconds to complete. Compare this to a 2-core Ubuntu 16.04 vm taking a couple of seconds. Something is very wrong!
+In a stock FreeBSD install Ansible's "setup" task can take a really long time. Testing against a dual xeon with 256GB of memory I observed the task consistently taking over 15 seconds to complete. When compared to a 2-core Ubuntu 16.04 vm taking a couple of seconds, something feels very wrong!
 
 In the single jail test I have my `hosts` file as follows:
 
@@ -22,6 +22,7 @@ sudo ANSIBLE_KEEP_REMOTE_FILES=1 ansible -m setup -i hosts my_single_jail
 The remote file, a script, can be found under `/root/.ansible` on the target host (`ansible_connection=jail` requires Ansible be run as root rather than becoming root with something like `sudo` or `doas`).
 
 Running the script under [`truss`](https://www.freebsd.org/cgi/man.cgi?truss) and following forks processes gives some interesting results...
+
 ~~~nohighlight
 truss -f /usr/local/bin/python .ansible/tmp/ansible-tmp-1471479743.01-38328629651633/setup
 ~~~
@@ -123,7 +124,7 @@ The setup code now completes in under a second. How do we fix this for actual an
 
 **Only works on Ansible < 2.1**
 
-The [BSD Support](http://docs.ansible.com/ansible/intro_bsd.html) page on Ansible's site notes that the ansible_python_interpreter host_var should be set to `/usr/local/bin/python`. We have to go one step further to include the maxfiles limit:
+The [BSD Support](http://docs.ansible.com/ansible/intro_bsd.html) page on Ansible's site notes that the `ansible_python_interpreter` host_var should be set to `/usr/local/bin/python`. We have to go one step further to include the maxfiles limit:
 
 ~~~nohighlight
 ansible_python_interpreter="limits -n 1024 /usr/local/bin/python"
