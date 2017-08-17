@@ -1,0 +1,46 @@
+---
+title: "Dell XPS 13 (9360) setup"
+date:  2017-08-17 22:04:00
+description: "Installing the Ubuntu 17.10 alpha on a Dell XPS 13"
+keywords: dell, xps, 13, 9360, linux, ubuntu, 17.10, artful, aardvark, nightly, alpha, secure boot
+---
+
+Following the passing of my late 2008 MacBook, I decided to make my next laptop a Dell XPS 13. The configuration I settled on wasn't available in the native Linux (developer edition) format. Fortunately, the Windows 10 versions of the late 2016 (9360) XPS 13 are using the same hardware as the developer edition, [unlike the previous generation](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9350)#Wireless).
+
+This post documents some of the findings I had installing Linux.
+
+## While still in Windows...
+I took the opportuniry with the stock Windows 10 install to install a few updates:
+
+* The latest BIOS: The 9360 shipped with 1.3.7, whereas 2.1.0 was the latest available. One of the update notes mentioned a reduction in "EE noise" by CPU optimization. Hopefully this is a reaction to the well documentation coil-whine problem of this and the previous generation models.
+* TPM firmware - this was already the latest available version, using specification 2.0.
+* Disabling [Content Adaptive Brightness Control](http://www.t3.com/news/you-can-now-disable-the-dell-xps-13s-annoying-contrast-feature)
+
+## BIOS changes
+
+The SSDs that ship in these laptops use nvme. Fortunately support for this protocol has been shipped with the Linux kernel for a long time. However, the `/dev/nvme0n1` block device would not appear in Linux without first making a change in the BIOS. The SATA controller must be put into AHCI mode, rather than RAID, before the drive is picked up by the kernel. [Searching around](https://www.reddit.com/r/Dell/comments/4gke4k/a_closer_look_at_ahci_vs_raid/) it seems that RAID mode here is support Intel's Rapid Storage Technology (Windows-specific).
+
+## Ubuntu install
+I decided to go for the latest 17.10 nightly build. The release is currently in alpha, with a beta [scheduled for the end of the month](https://wiki.ubuntu.com/ArtfulAardvark/ReleaseSchedule). Despite the alpha status, the install and build appear to be very stable. Some observations:
+
+* The 9360 can take advantage of secure boot, facilitated by the Ubuntu installer. No third-party modules are needed, presumably because the hardware is largely Intel.
+* While the installer allows for encryption of the root filesystem and user home directory, there is not an easy option for mounting /home on a different logical volume. To have a separate /home mount, you can either manually partition the drives or make alterations to the automated setup before rebooting into the OS.
+
+## Touchpad and keyboard customization
+
+There are *some* options under the Mouse & Touchpad section of the Settings app with more available in `gnome-tweak-tool`. Some settings I landed on:
+
+* Natural Scrolling off
+* Tap to Click: off
+* Edge Scrolling: off
+* Touchpad Click Method: Fingers, rather than Areas. A two-finger click is a right-click, anywhere on the trackpad.
+* Caps Lock is also a Ctrl. The ctrl and fn keys on the keyboard cannot be swapped in the bios. Whether it's muscle memory or ergonomics, my small finger gravitates to the fn key rather than ctrl. My solution has been to add another, easier to hit, ctrl key on the home row.
+
+The only thing missing to me at this point was touchpad gestures for back/forward in the browser. This requirement led me to [libinput-gestures](https://github.com/bulletmark/libinput-gestures). This tool notes incomplete support for XWayland - the default on GNOME since 3.22. Fortunately Firefox and Chrome are Xorg-based, and can take advantage of `xdotool` to send alt-left, alt-right for browser back, forward using the tool.
+
+## Everything else
+
+* Snaps! `sudo snap install discord`
+* [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
+* TIL: `apt-get changelog`
+* [Arch wiki page for the 9360](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360))
