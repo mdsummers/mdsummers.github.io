@@ -10,7 +10,7 @@ Following the passing of my late 2008 MacBook, I decided to make my next laptop 
 This post documents some of the findings I had installing Linux.
 
 ## While still in Windows...
-I took the opportuniry with the stock Windows 10 install to install a few updates:
+I took the opportunity with the stock Windows 10 install to install a few updates:
 
 * The latest BIOS: The 9360 shipped with 1.3.7, whereas 2.1.0 was the latest available. One of the update notes mentioned a reduction in "EE noise" by CPU optimization. Hopefully this is a reaction to the well documentation coil-whine problem of this and the previous generation models.
 * TPM firmware - this was already the latest available version, using specification 2.0.
