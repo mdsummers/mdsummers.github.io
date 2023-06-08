@@ -12,13 +12,15 @@ kramdown:
   input: GFM
 
 paginate: 20
-baseurl: /
-domain_name: 'http://mattsumme.rs'
+domain_name: 'https://mattsumme.rs'
 google_analytics: 'G-YTMY6P9SB6'
 # disqus_shortname: 'your-disqus-shortname'
 
+repository:     mdsummers/mdsummers.github.io
+domain:         mattsumme.rs
+url:            'https://mattsumme.rs'
+baseurl:        '/'
 # Details for the RSS feed generator
-url:            'http://mattsumme.rs'
 author:         'Matt Summers'
 authorTwitter:  'matt_summers'
 
