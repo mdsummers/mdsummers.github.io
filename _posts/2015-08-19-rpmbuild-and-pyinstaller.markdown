@@ -28,4 +28,4 @@ Rebuild your package and give it another go.
 
 [^1]: The second line may not be strictly necessary. It prevents the creation of a [debuginfo package](https://fedoraproject.org/wiki/Packaging:Debuginfo).
 
-[^2]: I could probably also have [used %global here](http://www.rpm.org/wiki/PackagerDocs/Macros#BuiltinMacros) instead of define.
+[^2]: I could probably also have [used %global here](https://docs.fedoraproject.org/en-US/packaging-guidelines/RPMMacros/) instead of define.

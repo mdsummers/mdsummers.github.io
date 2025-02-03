@@ -124,7 +124,7 @@ The setup code now completes in under a second. How do we fix this for actual an
 
 **Only works on Ansible < 2.1**
 
-The [BSD Support](http://docs.ansible.com/ansible/intro_bsd.html) page on Ansible's site notes that the `ansible_python_interpreter` host_var should be set to `/usr/local/bin/python`. We have to go one step further to include the maxfiles limit:
+The [BSD Support](https://docs.ansible.com/ansible/2.8/user_guide/intro_bsd.html) page on Ansible's site notes that the `ansible_python_interpreter` host_var should be set to `/usr/local/bin/python`. We have to go one step further to include the maxfiles limit:
 
 ~~~nohighlight
 ansible_python_interpreter="limits -n 1024 /usr/local/bin/python"
@@ -155,7 +155,7 @@ Alter limits for the user running ansible (root for me) under `/etc/login.conf` 
 
 ## Aside: Why are the file limits so high?
 
-The FreeBSD handbook section on [tuning kernel limits](https://www.freebsd.org/doc/handbook/configtuning-kernel-limits.html) covers the `kern.maxfiles` sysctl:
+The FreeBSD handbook section on [tuning kernel limits](https://docs-archive.freebsd.org/doc/8.4-RELEASE/usr/share/doc/freebsd/handbook/configtuning-kernel-limits.html) covers the `kern.maxfiles` sysctl:
 
 ~~~nohighlight
 The read-only sysctl(8) variable kern.maxusers is automatically sized at boot based on the amount of memory available in the system

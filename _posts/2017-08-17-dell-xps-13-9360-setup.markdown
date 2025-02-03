@@ -21,7 +21,7 @@ I took the opportunity with the stock Windows 10 install to install a few update
 The SSDs that ship in these laptops use nvme. Fortunately support for this protocol has been shipped with the Linux kernel for a long time. However, the `/dev/nvme0n1` block device would not appear in Linux without first making a change in the BIOS. The SATA controller must be put into AHCI mode, rather than RAID, before the drive is picked up by the kernel. [Searching around](https://www.reddit.com/r/Dell/comments/4gke4k/a_closer_look_at_ahci_vs_raid/) it seems that RAID mode here is support Intel's Rapid Storage Technology (Windows-specific).
 
 ## Ubuntu install
-I decided to go for the latest 17.10 nightly build. The release is currently in alpha, with a beta [scheduled for the end of the month](https://wiki.ubuntu.com/ArtfulAardvark/ReleaseSchedule). Despite the alpha status, the install and build appear to be very stable. Some observations:
+I decided to go for the latest 17.10 nightly build. The release is currently in alpha, with a beta scheduled for the end of the month. Despite the alpha status, the install and build appear to be very stable. Some observations:
 
 * The 9360 can take advantage of secure boot, facilitated by the Ubuntu installer. No third-party modules are needed, presumably because the hardware is largely Intel.
 * While the installer allows for encryption of the root filesystem and user home directory, there is not an easy option for mounting /home on a different logical volume. To have a separate /home mount, you can either manually partition the drives or make alterations to the automated setup before rebooting into the OS.
@@ -41,6 +41,6 @@ The only thing missing to me at this point was touchpad gestures for back/forwar
 ## Everything else
 
 * Snaps! `sudo snap install discord`
-* [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
+* [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm)
 * TIL: `apt-get changelog`
 * [Arch wiki page for the 9360](https://wiki.archlinux.org/index.php/Dell_XPS_13_(9360))

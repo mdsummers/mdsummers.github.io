@@ -8,7 +8,7 @@ archive: true
 
 I recently got to adding a test suite to an established module I had developed for work. The following resource was especially helpful in pointing me in the right direction:
 
-[Unit testing, the Clock way](http://www.clock.co.uk/blog/tools-for-unit-testing-and-quality-assurance-in-node-js)
+[Unit testing, the Clock way (archive.org link)](https://web.archive.org/web/20160310021918/https://www.clock.co.uk/blog/tools-for-unit-testing-and-quality-assurance-in-node-js)
 
 Briefly outlined, the modules I started using:
 

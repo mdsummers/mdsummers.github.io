@@ -14,9 +14,9 @@ Sooner or later when working with a fleet of linux servers, it becomes necessary
 
 The bulk of my packaging experience has been on RPM-based systems where there are a few standout options/frameworks for package building, such as:
 
-* [Fedpkg](https://fedorahosted.org/fedpkg/) with [Koji](https://fedorahosted.org/koji/wiki)
+* [Fedpkg](https://fedorahosted.org/fedpkg/) with [Koji](https://fedoraproject.org/wiki/Koji)
 * [openSUSE Build Service](https://build.opensuse.org/)
-* [CentOS Sources](http://wiki.centos.org/Sources)
+* [CentOS Sources](https://wiki.centos.org/Sources.html)
 * Project-specific or DIY one-off build scripts.
 
 The first two of these options use the notion of a lookaside cache. This basically means putting binary or other non vcs-friendly files onto another server and simply referring to them. As far as I can tell, OBS bundles together source binaries rather than referring to them in a separate cache. However, given that all of the files for OBS are kept in a cloud system, there are some similarities to be drawn.
