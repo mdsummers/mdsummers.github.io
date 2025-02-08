@@ -2,7 +2,7 @@
 title: "Regression in aws-sdk-v3 PutObject when using node.js streams"
 date:  2025-02-08 11:29:00
 description: "Regression in aws-sdk-v3 PutObject when using streams"
-keywords: TODO
+keywords: aws-sdk-v3, javascript, node.js, PutObject, PutObjectCommand, streams, express, regression, middleware-flexible-checksums
 ---
 
 When storing objects in S3 from a node.js application server, streams allow a method to store the body of a user's request without buffering to disk, or keeping a full in-memory footprint. Consider the following example using express:
@@ -75,6 +75,9 @@ Ok, let's do that. The reason we opted against the `Upload` helper historically 
 ```
 
 This resolves our problem while keeping the feature-set of the original.
+
+## See also
+* [Announcement: S3 default integrity change](https://github.com/aws/aws-sdk-js-v3/issues/6810)
 
 [^1]: When running a local server the error does not occurr. To reproduce, consider using `curl` with the `--limit-rate` option to simulate a bandwidth-restricted environment like a WAN.
 [^2]: Historically `ContentMD5` was the only option you had to ensure a consistency check took place.
