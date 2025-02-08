@@ -37,7 +37,7 @@ app.put('/example', (req, res, next) => {
 });
 ```
 
-This worked until `@aws-sdk/client-s3` version 3.726.1. However, in 3.729.0 the command fails over a WAN[^1] and the following is written to console:
+This worked until `@aws-sdk/client-s3` version 3.726.1. However, in 3.729.0 the command fails when the user's request is made over a WAN[^1]. The following is seen written to the console:
 ```plaintext
 Are you using a Stream of unknown length as the Body of a PutObject request? Consider using Upload instead from @aws-sdk/lib-storage.
 ```
@@ -94,5 +94,5 @@ This resolves our problem while keeping the feature-set of the original.
 ### See also
 * [Announcement: S3 default integrity change](https://github.com/aws/aws-sdk-js-v3/issues/6810)
 
-[^1]: When running a local server the error does not occurr. To reproduce, consider using `curl` with the `--limit-rate` option to simulate a bandwidth-restricted environment like a WAN.
+[^1]: When running a local server the error does not occur. To reproduce, consider using `curl` with the `--limit-rate` option to simulate a bandwidth-restricted environment like a WAN.
 [^2]: Historically `ContentMD5` was the only option you had to ensure a consistency check took place.
