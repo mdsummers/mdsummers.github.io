@@ -5,6 +5,21 @@ description: "Regression in aws-sdk-v3 PutObject when using streams"
 keywords: aws-sdk-v3, javascript, node.js, PutObject, PutObjectCommand, streams, express, regression, middleware-flexible-checksums
 ---
 
+### Update since posting
+
+There is a simple fix for this. We can disable the new checksum features by using `requestChecksumCalculation: 'WHEN_REQUIRED'` when constructing the `S3Client`. e.g.
+```
+const client = new S3Client({
+  apiVersion: '2006-03-01',
+  region: 'eu-west-2',
+  requestChecksumCalculation: 'WHEN_REQUIRED'
+})
+```
+
+This appears to skip the manipulation of the headers and allows the stream to work correctly as it did before. More details on [github](https://github.com/aws/aws-sdk-js-v3/issues/6810).
+
+### The original post
+
 When storing objects in S3 from a node.js application server, streams allow a method to store the body of a user's request without buffering to disk, or keeping a full in-memory footprint. Consider the following example using express:
 
 ```javascript
@@ -76,7 +91,7 @@ Ok, let's do that. The reason we opted against the `Upload` helper historically 
 
 This resolves our problem while keeping the feature-set of the original.
 
-## See also
+### See also
 * [Announcement: S3 default integrity change](https://github.com/aws/aws-sdk-js-v3/issues/6810)
 
 [^1]: When running a local server the error does not occurr. To reproduce, consider using `curl` with the `--limit-rate` option to simulate a bandwidth-restricted environment like a WAN.
